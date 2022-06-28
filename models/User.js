@@ -6,21 +6,28 @@ const {
 const UserSchema = new Schema(
     {
     username: {
-        type: String,
-        unique: true,
-        required: true,
-        trim: true
+      type: String,
+      unique: true,
+      required: true,
+      trim: true
     },
     email: {
-        Type: String,
-        required: true,
-        unique: true,
-        // validate email address
+      type: String,
+      required: true,
+      unique: true,
     },
-    thoughts: 
-        []
-    ,
-    friends: []
-});
+    thoughts: [
+      {
+      type: Schema.Types.ObjectId,
+        ref: 'Thought'
+      }
+    ],
+    friends: [
+      {
+      type: Schema.Types.ObjectId,
+      ref: 'User'
+      }
+    ]
+    });
 
 module.exports = User;
