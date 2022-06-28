@@ -1,0 +1,25 @@
+{
+  "name": "mongo-social-app",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/FSchmidt292/mongo-social-app.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/FSchmidt292/mongo-social-app/issues"
+  },
+  "homepage": "https://github.com/FSchmidt292/mongo-social-app#readme",
+  "dependencies": {
+    "mongodb": "^4.7.0",
+    "mongoose": "^6.4.1",
+    "sequelize": "^6.21.1"
+  }
+}
