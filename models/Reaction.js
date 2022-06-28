@@ -7,6 +7,7 @@ const reactionSchema = new Schema(
     {
       reactionId: {
           type: Schema.Types.objectId,
+          ref: 'Reaction'
          // default: set to a new objectId
       },
       reactionBody: {

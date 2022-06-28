@@ -21,4 +21,6 @@ const UserSchema = new Schema(
         []
     ,
     friends: []
-})
+});
+
+module.exports = User;
