@@ -3,25 +3,52 @@ const {
     model
 } = require ('mongoose');
 
-const ThoughtSchema = new Schema(
+const ReactionSchema = new Schema(
   {
-    thoughtText: {
-        type: String,
-        required: true,
-        maxLength: 280 
+    reactionId: {
+        type: Schema.Types.ObjectId,
+        default: () => Types.ObjectId(),
     },
-    createdAt: {
-      type: Date,
-      default: Date.now,
-      // use a getter method to format the timestamp on query      
+    reactionBody: {
+      type: String,
+      required: true,
+      maxLength: 280      
     },
     username: {
       type: String,
       required: true
     },
-    reactions: []
+    createdAt: {
+      type: Date,
+      default: Date.now
+      //getter method to format the timestamp on query.
+    }
   }
-)
+);
+
+
+const ThoughtSchema = new Schema(
+  {
+    thoughtText: {
+        type: String,
+        required: true,
+        minLength: 1,
+        maxLength: 280 
+    },
+    createdAt: {
+      type: Date,
+      default: Date.now,
+      get: createdAtVal => dateFormat(createdAtVal)
+    },
+    username: {
+      type: String,
+      required: true
+    },
+    reactions: [ReactionSchema]
+  }
+);
+
+
 
 const Thought = model('Thought', ThoughtSchema);
 
